@@ -1,0 +1,41 @@
+Simple trnasmission line on top of substrate example
+
+***********************
+* default parameters
+***********************
+.units m
+.defaults w=10e-06 h=5e-06
++ sigma=5.88e7
++ fnw=4 fnh=4 frw=1.3 frh=1.3 nl=8
++ layer_epir=1.0 layer_sigma=0.0
++ pnw=1 pnh=1 pfracw=0.100000 pfrach=0.100000 pfracl=0.200000 nep
+
+
+***********************
+* Transmission line is 180um and separation is 40um and 60um above substrate
+***********************
+N1 x=-20e-6 	y=-90e-6 	z=60e-6
+N2 x=-20e-6 	y=90e-6 	z=60e-6
+N3 x=20e-6 	y=-90e-6 	z=60e-6
+N4 x=20e-6 	y=90e-6 	z=60e-6
+
+E1 N1 N2
+E2 N3 N4
+
+***********************
+* Short circuit termination 
+***********************
+.equiv N2 N4
+
+**************
+* substrate info
+**************
+L1 layer_epir=4.4 layer_sigma=50 starth=0.0
+
+**************
+* driver port
+**************
+.external N1 N3
+*Rdriver N2 N3 50
+
+.end

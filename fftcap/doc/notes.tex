@@ -1,0 +1,279 @@
+% fastcap user's guide root latex file
+\documentstyle[12pt]{article}
+
+\pagestyle{headings}
+
+
+\setlength{\oddsidemargin}{0.25in}      % 1.25in left margin 
+\setlength{\evensidemargin}{0.00in}     % 1.00in left margin (even pages)
+\setlength{\topmargin}{0.0in}           % 1in top margin
+\setlength{\textwidth}{6.25in}          % 6.25in text
+\setlength{\textheight}{9in}            % Body ht for 1in margins
+\addtolength{\topmargin}{-\headheight}  % No header, so compensate
+\addtolength{\topmargin}{-\headsep}     % for header height and separation
+
+\newcommand{\thecode}{{\tt fftcap }}
+\newcommand{\fastcap}{{\tt fastcap }}
+
+
+\begin{document}
+
+\begin{titlepage}
+\vskip 36pt
+\begin{center}
+{\bf fftcap User Notes}
+\end{center}
+
+\vskip 18pt
+\begin{center}
+\hspace*{1.0in} J.~R.~Phillips \hfill J.\ White\hspace*{1.0in}
+\end{center}
+
+\vskip 18pt
+\begin{center}
+Research Laboratory of Electronics \\
+Department of Electrical Engineering and Computer Science \\
+Massachusetts Institute of Technology \\
+Cambridge, MA  02139 U.S.A.
+\end{center}
+\vskip 18pt
+\begin{center}
+11 Mar 1996
+\end{center}
+
+\vfill
+\noindent This work was supported by the Defense Advanced Research Projects
+Agency contract N00014-91-J-1698,
+the National Science Foundation contract (MIP-8858764 A02), an NDSEG Fellowship,
+and grants from Digital Equipment Corporation, IBM and the Consortium for
+Superconducting Electronics. 
+
+\mbox{}
+\vfill
+\noindent Copyright \copyright\ 1992 Massachusetts Institute of Technology,
+Cambridge, MA.  All rights reserved.
+
+\vspace{\baselineskip}
+\noindent This Agreement gives you, the LICENSEE, certain rights 
+and obligations.
+By using the software, you indicate that you have read, understood, and
+will comply with the terms.
+
+\vspace{\baselineskip}
+\noindent M.I.T.\ MAKES NO REPRESENTATIONS OR WARRANTIES, 
+EXPRESS OR IMPLIED.  By
+way of example, but not limitation, M.I.T.\ MAKES NO REPRESENTATIONS OR
+WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR
+THAT THE USE OF THE LICENSED SOFTWARE COMPONENTS OR DOCUMENTATION WILL
+NOT INFRINGE ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+M.I.T.\ shall not be held liable for any liability nor for any direct,
+indirect or consequential damages with respect to any claim by LICENSEE
+or any third party on account of or arising from this Agreement or use
+of this software.
+
+\end{titlepage}
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Introduction}
+
+This a short guide to \thecode, a three-dimensional capacitance
+extraction program.  \thecode computes self and mutual capacitances
+between ideal conductors of
+arbitrary shapes, orientations and sizes.  
+
+\thecode is built on top of the capacitance extraction code FASTCAP, and
+thus the usage and capabilities of the two codes are similar.  You should
+obtain the documentation for FASTCAP, in particular the FASTCAP Users
+Guide, for full information on compilation, usage, and input file formats.
+This note is devoted to describing some of the salient differences in the
+usage and capabilities of the two codes. 
+
+The algorithm used in
+FastCap is an acceleration of the boundary-element technique for
+solving the integral equation associated with the multiple-conductor,
+multiple-dielectric
+capacitance extraction problem.  
+The linear system resulting  from the boundary-element discretization
+is solved using a
+a generalized conjugate
+residual algorithm with a fast multipole algorithm to efficiently
+compute the iterates.
+
+\thecode differs from FASTCAP primarily in the way the iterates are
+computed.  The fast-multipole algorithm of FASTCAP has been replaced with
+a grid-based, ``precorrected-FFT'' algorithm.   For many geometries, the
+grid-based algorithm is faster and more memory-efficient than the
+fast-multipole algorithm implemented in FASTCAP.  More importantly, the
+grid-based algorithm easily incorporates boundary-element analysis based on
+modified Green functions.  A simple example of analysis using modified
+Green functions, capacitance extraction in the presence of a planar
+interface, is implemented in \thecode.    The planar interface may
+be a groundplane, symmetry plane, or dielectric interface.  Currently the
+analyis requires that all conductors must lie in the same half-space. 
+
+In fact, the primary purpose of this release is to give an example of a
+research implementation of the grid-based approach.  As such, \thecode is
+not as flexible or robust as FASTCAP.  In particular, no preconditioner has
+been implemented in \thecode, and no allowance is made for non-planar or
+multiple dielectric interfaces.  However, for many problems, the algorithms
+used in \thecode are more efficient than those used in FASTCAP, sometimes
+by substantial factors. 
+
+The algorithms of \thecode are discussed in 
+
+\begin{enumerate}
+\item J.~R.~Phillips and J.~White, ``Efficient Capacitance Extraction of 3D
+  Structures Using Generalized Pre-corrected FFT methods,''  {\sl
+    Proceedings of the IEEE 3rd Topical Meeting on Electrical Performance 
+    of Electronic Packaging}, Monterey, CA, November 1994.
+
+\item J.~Phillips and J.~White, ``A Precorrected-FFT method for Capacitance
+  Extraction of Complicated 3-D Structures,'' {\sl Proceedings of the Int. Conf. on
+    Computer-Aided Design}, Santa Clara, California, November 1994.
+
+\item J.~R.~Phillips,  ``Error and complexity analysis for a
+  collocation-grid-projection plus precorrected-{FFT} algorithm for solving
+  potential integral equations with Laplace or Helmholtz kernels'' {\sl
+ Proceedings of the 1995 Colorado Conference on Multigrid Methods}, Copper
+Mountain, CO, April 1995. 
+
+\end{enumerate}
+
+
+\section{Running}
+
+\subsection{Command Line Options}
+
+The basic form of the \thecode program command line is
+\begin{quote}
+\begin{verbatim}
+fftcap [-G<grid order>] [-d<depth>] [<input file>]
+        [-z<reference level>] [-R<coef>] 
+        [-l<list file>] [-t<iter tol>]
+\end{verbatim}
+\end{quote}
+
+The primary run-time differences between \thecode and \fastcap are the {\tt
+  -G,-d,-z,-R} flags. 
+
+\begin{itemize}
+
+\item {\tt -G <grid order>}. 
+
+  The grid order variable controls the number of point charges used to
+  approximate the long-range potential of charged panels. Accuracy
+  generally increases with order, as does computational cost.  The default
+  grid order is 3.  Permitted orders are 2,3,4 and 5.  In terms of the
+  computed capacitance coefficients, grid order 2 is accurate to about $5 \times 10^{-2}$,
+  order 3 to $5 \times 10^{-3}$, order 4 to  $10^{-3}$, and order 5 to
+  $10^{-4}$.  The concept of grid order is the \thecode equivalent to
+  multipole expansion order in FASTCAP. 
+
+\item {\tt -d<depth>}. 
+
+The size of the grid, that is the number of grid points throughout the
+problem domain, is by default set automatically by a routine which attempts
+to estimate the computationally optimal grid size.   The grid size may be
+set by hand by using the {\tt -d} option.  If size $m$ is specified, {\tt
+  -d$m$} then the code will allocate $2^m$ grid points along the longest
+axis of the parallelipiped containing the problem domain.  Again, this is
+similar to, yet different than, the FASTCAP ``depth'' variable. 
+
+\item {\tt -z<reference level>} 
+
+\thecode has the capability to extract the capacitance coefficients of a
+system of conductors in the presence of a planar interface.  When the
+argument {\tt -z$z_0$} is given, the code assumes that the interface is
+located at $z$-coordinate $z_0$, in the coordinate system of the input
+conductors.  All the conductors must have $z$-coordinates greater than
+$z_0.$ 
+
+The compile flag
+{\tt GNDPLN} must be set {ON} to enable analysis of problems with planar
+interfaces. 
+
+\item {\tt -R<coef>} 
+
+This flag specifies the nature of the planar interface.  Essentially, {\tt
+  <coef>} is the relative magnitude of the image charge used to construct
+the modified Green function. The compile flag
+{\tt GNDPLN} must be set {ON}.  For dielectric interfaces, the coefficient
+$R$ is given by 
+
+\[ R = \frac{\epsilon_1 - \epsilon_2}{\epsilon_1 + \epsilon_2} \] 
+
+where $\epsilon_1$ is the dielectric constant of the space the conductors
+are imbedded in, and $\epsilon_2$ is the dielectric constant of the other
+half-space. 
+
+For ground planes,  {\tt -R-1} is used.  For symmetry planes, ${\tt -R1}$
+is used. 
+
+For problems with planar interfaces, currently all conductors must be on
+one side of the interface. 
+
+\end{itemize}
+
+\subsection{Warnings and Errors}
+
+\thecode introduces two new warnings the user may encounter. 
+
+\begin{verbatim}
+placeq: Warning, a panel is larger than the cube supposedly containing it
+\end{verbatim}\vspace{-\topsep}
+
+The number of grid points in the domain is large enough such that a basic
+computational cell is smaller than some panel in the domain.  
+If $m$ is the grid level specified by {\tt -d$m$}, then the grid spacing
+$\Delta = L / (2^m-1)$, where $L$ is the length of the problem domain along
+the longest axis.   If $p$ is the grid order specified by the {\tt -G$p$}
+flag the condition  
+
+\[ R < (p-1) \Delta \] 
+
+must be satisfied within ten percent or so, or the results produced by
+\thecode may be inaccurate.  Convergence of the iterative solver may also
+be impaired. 
+
+\begin{verbatim}
+Warning: a panel is in the wrong half-space; results may be invalid
+\end{verbatim}\vspace{-\topsep}
+
+If a planar interface at $z$-coordinate $z_0$ is specified with the flag
+{\tt -z$z_0$}, all panel $z$-coordinates must be greater than $z_0$ or this
+warning results.   Behavior of the code may be unpredictable. 
+
+\subsection{Bugs}
+
+\thecode has several shortcomings, some of which are itemized here. The
+user may report other bugs by sending mail 
+to \verb~fftcap-bug@rle-vlsi.mit.edu~.
+
+\begin{itemize}
+
+\item There is no preconditioner. 
+
+\item Non-planar or multiple dielectric interfaces are not implemented. 
+
+\item Cell sizes smaller than a panel size, due to an excessively fine
+  grid, may lead to substantial errors in the computed capacitances.
+
+\item The {\tt -p} option does not work currently.  
+
+\item Changing planar interface capability requires recompilation. 
+
+\item \thecode does not work well with very imhomogeneous discretizations. 
+
+\end{itemize}
+
+\section{Compiling}
+\label{comfas}
+
+To enable the analysis of planar interfaces, the compile flag {\tt GNDPLN}
+in the file {\tt src/mulGlobal.h} should be set {\tt ON}.  The code will
+then assume the presence of planar interfaces.  For execution on problems
+without interfaces, the flag should be set {\tt OFF}. 
+
+\end{document}

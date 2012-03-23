@@ -1,0 +1,38 @@
+IFLAGS = -I. -I$(PFFT_INC_DIR) 
+LFLAGS = $(CLIBS)
+
+COMMONOBJS = 
+CUBEOBJS   = cubegen.o 
+SPHEREOBJS = spheregen.o
+SPHEREOBJS2 = spheregen2.o 
+
+OBJS= $(COMMONOBJS) $(CUBEOBJS) $(SPHEREOBJS) $(SPHEREOBJS2) 
+
+
+all: $(PFFT_BIN_DIR)/cubegen $(PFFT_BIN_DIR)/spheregen $(PFFT_BIN_DIR)/spheregen2 
+
+clean:
+	-$(RM) *.o *~;
+
+$(PFFT_BIN_DIR)/cubegen: $(COMMONOBJS) $(CUBEOBJS)
+	$(CC) $(IFLAGS) \
+              -o $(PFFT_BIN_DIR)/cubegen \
+	      $(COMMONOBJS) $(CUBEOBJS) \
+	      $(LFLAGS) 
+
+$(PFFT_BIN_DIR)/spheregen: $(COMMONOBJS) $(SPHEREOBJS)
+	$(CC) $(IFLAGS) \
+              -o $(PFFT_BIN_DIR)/spheregen \
+              $(COMMONOBJS) $(SPHEREOBJS)\
+	      $(LFLAGS) 
+
+$(PFFT_BIN_DIR)/spheregen2: $(COMMONOBJS) $(SPHEREOBJS2)
+	$(CC) $(IFLAGS) \
+              -o $(PFFT_BIN_DIR)/spheregen2 \
+              $(COMMONOBJS) $(SPHEREOBJS2)\
+	      $(LFLAGS) 
+
+.SUFFIXES:
+.SUFFIXES: .o .c
+.c.o:
+	$(CC) $(CFLAGS) $(IFLAG) -c $<

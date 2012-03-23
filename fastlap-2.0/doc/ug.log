@@ -1,0 +1,196 @@
+This is TeX, Version 3.1415 (C version 6.1) (format=lplain 95.1.23)  23 OCT 1996 14:14
+**ug
+(ug.tex
+LaTeX2e <1994/06/01>
+(/usr/local/lib/texmf/tex/latex2e/base/latex209.def
+File: latex209.def 1994/06/01 Standard LaTeX file
+
+Entering LaTeX 2.09 compatibility mode.
+\footheight=\dimen102
+\@maxsep=\dimen103
+\@dblmaxsep=\dimen104
+(/usr/local/lib/texmf/tex/latex2e/base/tracefnt.sty
+Package: tracefnt 1994/05/29 v2.3k Standard LaTeX package (font tracing)
+\tracingfonts=\count82
+LaTeX Info: Redefining \selectfont on input line 113.
+)
+\symbold=\mathgroup4
+\symsans=\mathgroup5
+\symtypewriter=\mathgroup6
+\symitalic=\mathgroup7
+\symsmallcaps=\mathgroup8
+\symslanted=\mathgroup9
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 179.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 180.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 181.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 187.
+LaTeX Info: Redefining \em on input line 197.
+
+(/usr/local/lib/texmf/tex/latex2e/base/latexsym.sty
+Package: latexsym 1994/05/27 v2.1e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup10
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+LaTeX Font Info:    Redeclaring math delimiter \lgroup on input line 262.
+LaTeX Font Info:    Redeclaring math delimiter \rgroup on input line 264.
+LaTeX Font Info:    Redeclaring math delimiter \bracevert on input line 266.
+)
+(/usr/local/lib/texmf/tex/latex2e/base/article.cls
+Document Class: article 1994/06/02 v1.2s Standard LaTeX document class
+(/usr/local/lib/texmf/tex/latex2e/base/size12.clo
+File: size12.clo 1994/06/02 v1.2s Standard LaTeX file (size option)
+)
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+Compatibility mode: definition of \rm ignored.
+Compatibility mode: definition of \sf ignored.
+Compatibility mode: definition of \tt ignored.
+Compatibility mode: definition of \bf ignored.
+Compatibility mode: definition of \it ignored.
+Compatibility mode: definition of \sl ignored.
+Compatibility mode: definition of \sc ignored.
+\bibindent=\dimen105
+) (ug.aux)
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+ [0
+
+]
+LaTeX Font Info:    No math setup on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 120.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 120.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 120.
+
+(/usr/local/lib/texmf/tex/latex2e/base/Ulasy.fd
+File: Ulasy.fd 1994/05/27 v2.1eLaTeX symbol font definitions
+) [1] (ug.toc)
+\tf@toc=\write4
+ [2]
+Overfull \hbox (1.28899pt too wide) in paragraph at lines 183--186
+[][]\OT1/cmr/m/n/12 A bug in \OT1/cmtt/m/n/12 mulMats.c \OT1/cmr/m/n/12 has bee
+n fixed. A com-mand to start the timer (\OT1/cmtt/m/n/12 starttimer\OT1/cmr/m/n
+/12 )
+ []
+
+[1] [2] [3]
+LaTeX Font Info:    No math setup on input line 288.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 288.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 288.
+LaTeX Font Info:    No math setup on input line 291.
+ [4]
+LaTeX Font Info:    No math setup on input line 369.
+LaTeX Font Info:    No math setup on input line 371.
+ [5] [6] [7] [8] [9] [10] [11] [12]
+LaTeX Font Info:    No math setup on input line 783.
+ [13]
+LaTeX Font Info:    No math setup on input line 824.
+ [14]
+Overfull \hbox (10.35588pt too wide) in paragraph at lines 859--870
+[][]\OT1/cmr/m/n/12 The ver-tices
+ []
+
+
+Overfull \hbox (3.75879pt too wide) in paragraph at lines 880--885
+[][]\OT1/cmr/m/n/12 At any level, Fast-Lap al-ways checks
+ []
+
+
+Overfull \hbox (9.88525pt too wide) in paragraph at lines 887--889
+[][]\OT1/cmr/m/n/12 The cor-
+ []
+
+
+Overfull \hbox (5.65515pt too wide) in paragraph at lines 892--901
+[][]
+ []
+
+[15]
+Overfull \hbox (3.12802pt too wide) in paragraph at lines 925--929
+[][]\OT1/cmr/m/n/12 There is a quadri-lat-eral panel for which
+ []
+
+[16]
+LaTeX Font Info:    No math setup on input line 1038.
+ [17]
+LaTeX Font Info:    No math setup on input line 1045.
+LaTeX Font Info:    No math setup on input line 1084.
+ [18]
+Overfull \hbox (10.98022pt too wide) in paragraph at lines 1209--1209
+[]    \OT1/cmtt/m/n/12 MAXDEP == 20 (assume no more than 20 partitioning levels
+ are needed)[] 
+ []
+
+
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 1209--1209
+[]\OT1/cmtt/m/n/12 FLW-placeq: oversized panel, cube length=0.124633 panel leng
+th=0.196034[] 
+ []
+
+[19]
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 1209--1209
+[]\OT1/cmtt/m/n/12 FLW-placeq: oversized panel, cube length=0.124633 panel leng
+th=0.231358[] 
+ []
+
+
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 1209--1209
+[]\OT1/cmtt/m/n/12 FLW-placeq: oversized panel, cube length=0.124633 panel leng
+th=0.247029[] 
+ []
+
+
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 1209--1209
+[]\OT1/cmtt/m/n/12 FLW-placeq: oversized panel, cube length=0.124633 panel leng
+th=0.260672[] 
+ []
+
+
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 1209--1209
+[]\OT1/cmtt/m/n/12 FLW-placeq: oversized panel, cube length=0.124633 panel leng
+th=0.275899[] 
+ []
+
+
+Overfull \hbox (4.80522pt too wide) in paragraph at lines 1209--1209
+[]\OT1/cmtt/m/n/12 FLW-placeq: oversized panel, cube length=0.124633 panel leng
+th=0.196034[] 
+ []
+
+[20] [21] [22]
+LaTeX Font Info:    No math setup on input line 1254.
+ [23] [24] [25] [26] (ug.aux) ) 
+Here is how much of TeX's memory you used:
+ 455 strings out of 11075
+ 4603 string characters out of 74968
+ 50366 words of memory out of 262141
+ 3225 multiletter control sequences out of 9500
+ 19516 words of font info for 71 fonts, out of 100000 for 255
+ 14 hyphenation exceptions out of 607
+ 23i,11n,21p,289b,286s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on ug.dvi (29 pages, 82180 bytes).

@@ -1,0 +1,5 @@
+#Special stuff for alpha linux boxes:
+#
+CC = ccc
+COPTIM_FLAGS    = -O4 -tune ev6 -arch ev6
+#CDEBUG_FLAGS    = -O0 -g

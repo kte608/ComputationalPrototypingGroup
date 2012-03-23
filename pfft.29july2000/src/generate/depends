@@ -1,0 +1,4 @@
+ix86-linux/cubegen.o: cubegen.c
+ix86-linux/spheregen.o: spheregen.c
+ix86-linux/spheregen2.o: spheregen2.c
+ix86-linux/weavegen.o: weavegen.c

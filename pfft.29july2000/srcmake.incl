@@ -1,0 +1,63 @@
+#
+# These statements are included in several of the 
+# makefiles in the src/* directories. 
+#
+OBJNAMES = $(OBJS:%.o=%)
+
+SOURCES  = $(OBJS:%.o=%.c)
+
+$(ARCH): 
+	@if [ ! -d $(ARCH) ]; then\
+	 echo Making directory for $(ARCH);\
+	 (mkdir $(ARCH); sleep 1;)\
+	fi
+
+depend: always depend.$(ARCH)
+	@echo 'Copying architecture dependent file (depend.$(ARCH))'
+	@$(CP) -f depend.$(ARCH) depends;
+
+depend.$(ARCH): $(OBJS:%.o=%.c)
+	@$(RM) $@;
+	@if $(GCC_EXISTS); then\
+	  echo 'Updating depends using gcc.';\
+	  gcc -E -MM $(IFLAGS) $(OBJS:%.o=%.c) | \
+	  $(SED) -e "s,\(.*\.o\),$(ARCH:%=%/\1)," > $@;\
+	else \
+	  echo 'No gcc to update depends. Making simple file.';\
+	  touch $@;\
+	  for i in $(OBJNAMES) ; do \
+	    echo $(ARCH)/$$i.o: $$i.c >> $@ ;\
+	  done\
+	fi
+
+minorclean:
+	$(RM) *~ *.o; 
+
+clean:
+	@$(RM) *~ *.o; 
+	@$(RM) -f core; 
+	@ echo Cleaning $(ARCH);
+	@if [ -d $(ARCH) ]; then\
+	  cd $(ARCH); $(RM) $(OBJS); \
+	fi
+	@if [ -d $(ARCH) ]; then\
+	  $(RMD) $(ARCH);\
+	fi
+
+realclean:
+	@$(RM) *~ *.o core;
+	-@for i in `cat $(PFFT_ROOT)/archs` ; do \
+	  echo Cleaning $$i;\
+	  $(RM) depend.$$i;\
+	  if [ -d $$i ]; then\
+	   (cd $$i; ${RM} $(OBJS))\
+	  fi\
+	done
+	-@for i in `cat $(PFFT_ROOT)/archs` ; do \
+	  if [ -d $$i ]; then\
+	    ${RMD} $$i;\
+	  fi\
+	done
+
+always: 
+

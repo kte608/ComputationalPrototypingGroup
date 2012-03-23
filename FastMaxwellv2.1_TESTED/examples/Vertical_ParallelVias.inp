@@ -1,0 +1,47 @@
+2 PCB vertical traces for dielectrics test
+
+* .units specifies the units of all the numbers used in the file
+.units m
+
+* A .default line (optional) can specify defaults for any parameter. 
+* List of parameters:
+* w 	 is the width of the segments
+* h 	 is the height of the segments
+* fnw	 is the number of filaments per segment width
+* fnh	 is the number of filaments per segment height
+* frw	 is the incremental ratio for filaments along the segment width
+* frh	 is the incremental ratio for filaments along the segment height
+* nl	 is the number of sections per segment
+* pnw	 is the number of panels per segment along the width
+* pnh	 is the number of panels per segment along the height
+* pfracw is the incremental ratio for panels along the segment width
+* pfrach is the incremental ratio for panels along the segment height
+* pfracl is the incremental ratio for panels along the segment length
+* a line can be continued on the next line using a + at the beginning
+
+
+.defaults fnw=4 fnh=4 frw=1.3 frh=1.3 nl=8
++ pnw=1 pnh=1 pfracw=0.1 pfrach=0.1 pfracl=0.2 nep
++ layer_epir=1.0  layer_sigma=0
+
+N1 	x=12.5e-6		y=10e-6		z=10e-6
+N2 	x=12.5e-6		y=10e-6		z=400e-6
+
+N3 	x=-12.5e-6		y=10e-6		z=10e-6
+N4 	x=-12.5e-6		y=10e-6		z=400e-6
+
+
+E1 N1 N2 w=5e-6 h=4e-6 sigma=5.8e7
+E2 N3 N4 w=5e-6 h=4e-6 sigma=5.8e7
+
+L1 layer_epir=11.9   layer_sigma=7.41   starth=0
+
+ 
+.equiv N2 N4
+.external N1 N3 driver
+
+.end
+
+
+
+

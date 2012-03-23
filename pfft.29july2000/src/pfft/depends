@@ -1,0 +1,22 @@
+ix86-linux/main.o: main.c /u0/buchmann/pFFTkernel/include/pfft.h
+ix86-linux/stdmath.o: stdmath.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h
+ix86-linux/elements.o: elements.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h \
+ Elements.h Calcp.h elements.testfunctions.c
+ix86-linux/grid.o: grid.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h Grid.h \
+ Nfft.h GridBundles.h grid.testfunctions.c Calcp.h
+ix86-linux/gridData.o: gridData.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h \
+ Sparse.h Dense.h
+ix86-linux/direct.o: direct.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h \
+ Calcp.h Direct.h Sparse.h Elements.h Dense.h GridBundles.h Grid.h
+ix86-linux/sparse.o: sparse.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h \
+ Sparse.h Grid.h sparse.testfunctions.c
+ix86-linux/dense.o: dense.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h \
+ Dense.h /u0/buchmann/pFFTkernel/include/dgesvd.h \
+ dense.testfunctions.c
+ix86-linux/calcp.o: calcp.c Calcp.h
+ix86-linux/gmres.o: gmres.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h \
+ Gmres.h
+ix86-linux/nfft.o: nfft.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h Calcp.h \
+ Nfft.h nfft.testfunctions.c Grid.h Elements.h Sparse.h
+ix86-linux/solve.o: solve.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h
+ix86-linux/bconds.o: bconds.c Global.h /u0/buchmann/pFFTkernel/include/pfft.h

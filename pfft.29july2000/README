@@ -1,0 +1,172 @@
+Please read this file before compiling the code. 
+
+If you are really in a hurry, then you may try the following
+right away. YOU STILL MUST AGREE TO THE TERMS BELOW!
+1) "make -f makesimple"   # Build binaries (simplified build)
+2) "cd test"              # Go to test directory
+3) "./pfft sphere08.qui"  # Execute code
+Near the end of the output you should get the output: 
+"main: CAPACITANCE #1:   9.939703e-01"
+(Computed capacitance: 0.99397..., true value for a sphere
+is unity. Discretization is using 768 triangular elements.)
+
+Note that at the end of this file important information is 
+given needed for successfully compiling the present code in 
+a more controlled way.
+
+============================================================
+Please read and agree to the following terms before using the software:
+
+   Copyright (c) 2000 Massachusetts Institute of Technology, Cambridge, MA.
+   All rights reserved.
+
+   This Agreement gives you, the LICENSEE, certain rights and obligations.
+   By using the software, you indicate that you have read, understood, and
+   will comply with the terms.
+
+   Permission to use, copy and modify for internal, noncommercial purposes
+   is hereby granted.  Any distribution of this program or any part thereof
+   is strictly prohibited without prior written consent of M.I.T.
+
+   Title to copyright to this software and to any associated documentation
+   shall at all times remain with M.I.T. and LICENSEE agrees to preserve
+   same.  LICENSEE agrees not to make any copies except for LICENSEE'S
+   internal noncommercial use, or to use separately any portion of this
+   software without prior written consent of M.I.T.  LICENSEE agrees to
+   place the appropriate copyright notice on any such copies.
+
+   Nothing in this Agreement shall be construed as conferring rights to use
+   in advertising, publicity or otherwise any trademark or the name of
+   "Massachusetts Institute of Technology" or "M.I.T."
+
+   M.I.T. MAKES NO REPRESENTATIONS OR WARRANTIES, EXPRESS OR IMPLIED.  By
+   way of example, but not limitation, M.I.T. MAKES NO REPRESENTATIONS OR
+   WARRANTIES OF MERCHANTABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR
+   THAT THE USE OF THE LICENSED SOFTWARE COMPONENTS OR DOCUMENTATION WILL
+   NOT INFRINGE ANY PATENTS, COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS.
+   M.I.T. shall not be held liable for any liability nor for any direct,
+   indirect or consequential damages with respect to any claim by LICENSEE
+   or any third party on account of or arising from this Agreement or use
+   of this software.
+
+============================================================
+
+This is a set of "backbone" or "kernel" routines for solving 
+integral equations using the boundary element method (BEM). 
+It is the intention that the routines should be incorporated 
+in existing (or new) BEMs, rather than being considered as a 
+stand-alone program. 
+
+If you need a stand-alone program for capacitance extraction 
+problems, then you are probably better off by downloading 
+the "FastCap" package from:
+ http://rle-vlsi.mit.edu/research/info_research_codes.html
+ ftp://rle-vlsi.mit.edu/pub/fastlap/
+
+The routines represent a re-implementation of the precorrected-FFT
+method by Joel Phillips. The original pFFT code (FFTcap), 
+which resembles FastCap to a much higher extend than the 
+present code, is also available for download. 
+Note, however, that FFTcap is not quite as well documented 
+as FastCap.
+ ftp://rle-vlsi.mit.edu/pub/fftcap/
+
+Even though the present code is a re-implementation of 
+the pFFT method, there are very significant differences 
+between the present code and FFTcap. In particular FFTcap 
+takes a "cube-based" approach, while the present code is 
+grid-oriented. Further, a modular coding style has been 
+adapted to make the code flexible with regard to future 
+changes. Projection and interpolation operators as well 
+as direct element interactions are stored in sparse 
+matrices for added flexibility and speed. A preconditioner 
+is implemented to reduce the number of iterations required 
+to obtain a certain accuracy. The size of the direct matrix 
+(number of direct interactions) and the order of projection
+and interpolation schemes are hardcoded, but can be changed
+easily in the routine "setupGridStencils" (src/pfft/grid.c).
+Here the size of the preconditioner is determined as well.
+
+The present code comes with VERY sparse documentation. 
+However, the actual source code should have plenty of 
+comments. Feel free to poke around. Further, an example 
+file "src/pfft/main.c" is included to show how the 
+various routines may be accessed. Compiling the code 
+(preferrably using gmake) should result in an executable 
+called "bin/{OS}/pfft", where OS is your system configuration 
+as determined by "util/config.guess". The executable should
+also be copied to "test/pfft". 
+Initially, the sample program is set up to solve the 
+capacitance extraction problem using the indirect formulation. 
+Input files should be simple FastCap files. Run "pfft -h" for 
+details, or look in the routine "parseCommandLine" in "main.c"
+However, with little modification, "main.c" may be set up 
+to use the direct formulation to solve first-kind, second-kind 
+or mixed integral equation problems. 
+A few sample input files are available in the directory "test".
+Further, a few sample input file generators are given too.
+Source code is in "src/generate", and binaries go in "bin/{OS}".
+Be warned that generating reasonable discretizations is 
+something of a black art. For instance coarse discratizations, 
+high aspect ratio elements and/or a mix of large and small 
+elements may lead to large errors in the solution! When possible 
+you should make a convergence study to see if your solution 
+depends on the chosen discretization (it should not).
+
+Please look for upcoming papers describing the methods and 
+implementation used in the present code!
+
+It is suggested that you modify at least all the routines in 
+"src/pfft/bconds.c" to suit your particular problem.
+
+Only the 1/r (free-space) Green's function (integral kernel) 
+is implemented at the time of writing. However, the code is 
+structured so that different kernels can be introduced without 
+modifying the code extensively.
+
+I would like to thank the authors of LAPACK and cLAPACK for
+their efforts. The present code use LAPACK (and BLAS) for 
+the solution of some small dense systems of equations.
+
+------------------------------------------------------
+IMPORTANT:
+To compile the present code you need to modify the makefiles. 
+At the very least, the file "def.modfile" needs to be modified 
+to include the path to the directory of that file itself. 
+Further modifications are needed if you are not using the gcc 
+compiler as well as for setting local optimization options. 
+This may be done in "def.makefile" as well as in a OS specific 
+file, such as "opts.alpha-linux" or "opts.ix86-linux", which 
+is included at the end of "def.modfile."
+
+SHORTCUT:
+For a quick n' dirty compilation you can try:
+ make -f makesimple
+without modifying any files. Binaries then go in "bin/"
+rather than in "bin/{OS}/".
+------------------------------------------------------
+
+
+If you have problems using the code (or simply want to tell 
+us how great the code is), then please write to 
+ Professor Jacob K. White at: white@mit.edu 
+or directly to me at bjarne@buchmann.dk and we will try to help
+you out. Note, however, that I have presently left MIT and may 
+no longer be working with the pFFT algorithm. Thus, support on 
+this code may come from my spar(s)e time. I'll do my best to 
+help you out, though.
+
+I hope you come to like the code.
+
+
+    Cambridge, July 29, 2000
+
+    Bjarne Büchmann
+
+
+PS: Yes, that is a German style umlaud in my surname. If you
+use LaTeX, then you would write my name as: Bjarne B{\"u}chmann.
+International citation indices often use "Buchmann" for my 
+surname though, so you may want to use that if you search 
+for publications. Alternatively, you can look for publications at
+one of my home pages, e.g. http://rle-vlsi.mit.edu/~buchmann/

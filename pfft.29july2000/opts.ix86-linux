@@ -1,0 +1,3 @@
+#Special stuff for linux boxes:
+#
+CC = $(GCC)

@@ -1,0 +1,69 @@
+
+SHELL		= /bin/sh
+RM		= /bin/rm -f
+RMD		= /bin/rmdir
+SED        	= /bin/sed
+MV	        = /bin/mv
+CP	        = /bin/cp
+
+CC              = cc
+CFLAGS		= -O
+CLIBS		= -lc -lm 
+
+
+all: dirs
+	${MAKE} -f makesimple objects
+	${MAKE} -f makesimple link
+	${MAKE} -f makesimple generators
+
+dirs: 
+	@if [ ! -d bin ]; then \
+	  echo 'Creating directory bin';\
+	  mkdir bin;\
+	fi
+	@if [ ! -d test ]; then \
+	  echo 'Creating directory test';\
+	  mkdir test;\
+	fi
+
+objects: dirs
+	@ cd $(CLAPACK_SRC_DIR); \
+          ${MAKE} -f makesimple "CC=$(CC)" "CFLAGS=$(CFLAGS)"; 
+	@ cd $(PFFT_SRC_DIR); \
+          ${MAKE} -f makesimple "CC=$(CC)" "CFLAGS=$(CFLAGS)"\
+	   "PFFT_INC_DIR=../../$(PFFT_INC_DIR)";
+
+link: objects
+	$(CC) $(COPTIM_FLAGS) $(CDEBUG_FLAGS) \
+              $(PFFT_SRC_DIR)/*.o \
+              $(CLAPACK_SRC_DIR)/*.o \
+              -o $(PFFT_BIN_DIR)/pfft $(CLIBS) ;
+	$(CP) $(PFFT_BIN_DIR)/pfft $(PFFT_TEST_DIR)/.;
+
+generators: dirs
+	@ cd $(GENERAT_SRC_DIR); \
+	 ${MAKE} -f makesimple "CC=$(CC)" "CFLAGS=$(CFLAGS)"\
+	 "PFFT_BIN_DIR=../../$(PFFT_BIN_DIR)" "CLIBS=$(CLIBS)" \
+	 "PFFT_INC_DIR=../../$(PFFT_INC_DIR)";
+
+clean:
+	-@ cd $(CLAPACK_SRC_DIR); ${MAKE} -f makesimple clean "RM=$(RM)";
+	-@ cd $(PFFT_SRC_DIR);    ${MAKE} -f makesimple clean "RM=$(RM)"; 
+	-@ cd $(GENERAT_SRC_DIR); ${MAKE} -f makesimple clean "RM=$(RM)"; 
+	-${RM} $(PFFT_TEST_DIR)/core;
+	-${RM} *~;
+	-${RM} $(PFFT_INC_DIR)/*~;
+
+
+
+PFFT_SRC_DIR    = src/pfft
+CLAPACK_SRC_DIR = src/clapack
+GENERAT_SRC_DIR = src/generate
+PFFT_TEST_DIR   = test
+PFFT_UTIL       = util
+PFFT_INC_DIR    = include
+
+
+PFFT_BIN_ROOT   = bin
+PFFT_BIN_DIR    = $(PFFT_BIN_ROOT)
+

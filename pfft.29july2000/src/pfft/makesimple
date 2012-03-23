@@ -1,0 +1,17 @@
+IFLAG = -I. -I$(PFFT_INC_DIR) 
+
+OBJS= main.o                                          \
+      stdmath.o elements.o grid.o gridData.o direct.o \
+      sparse.o dense.o calcp.o gmres.o nfft.o solve.o \
+      bconds.o
+
+
+objs: $(OBJS)
+
+clean:
+	-$(RM) *.o *~;
+
+.SUFFIXES:
+.SUFFIXES: .o .c
+.c.o:
+	$(CC) $(CFLAGS) $(IFLAG) -c $<
