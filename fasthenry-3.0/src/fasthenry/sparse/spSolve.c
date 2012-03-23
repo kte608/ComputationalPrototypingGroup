@@ -94,8 +94,14 @@ static char RCSid[] =
 #include "spMatrix.h"
 #include "spDefs.h"
 
+/*
+ * FUNCTION PROTOTPYES
+ *
+ */
 
-
+static void
+SolveComplexMatrix( MatrixPtr Matrix, RealVector RHS, 
+		    RealVector Solution IMAG_VECTORS );
 
 
 /*

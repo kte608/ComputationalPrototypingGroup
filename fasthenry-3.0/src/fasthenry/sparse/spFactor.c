@@ -104,9 +104,77 @@ static char RCSid[] =
 #include "spMatrix.h"
 #include "spDefs.h"
 
+/*
+ * FUNCTION PROTOTYPES
+ *
+ */
 
+static
+CountMarkowitz( MatrixPtr Matrix, register RealVector RHS, int Step );
 
+static
+CreateInternalVectors( MatrixPtr Matrix );
 
+static int
+FactorComplexMatrix( MatrixPtr Matrix );
+
+static ElementPtr CreateFillin( MatrixPtr Matrix, register int Row, int Col );
+
+static int
+MatrixIsSingular( MatrixPtr Matrix, int Step );
+
+static ElementPtr
+SearchForPivot( MatrixPtr Matrix, int Step, int DiagPivoting );
+
+static ElementPtr
+SearchForSingleton( MatrixPtr Matrix, int Step );
+
+static int
+ZeroPivot( MatrixPtr Matrix, int Step );
+
+static
+UpdateMarkowitzNumbers(MatrixPtr Matrix,ElementPtr pPivot );
+
+static
+ComplexRowColElimination( MatrixPtr Matrix, register ElementPtr pPivot );
+
+static
+ExchangeColElements( MatrixPtr Matrix, 
+		     int Row1, register ElementPtr Element1, 
+		     int Row2, register ElementPtr Element2,
+		     int Column );
+
+static ElementPtr
+QuicklySearchDiagonal( MatrixPtr Matrix, int Step );
+
+static RealNumber
+FindBiggestInColExclude( MatrixPtr Matrix, register ElementPtr pElement, 
+			 register int Step );
+
+static
+ExchangeRowsAndCols( MatrixPtr Matrix, ElementPtr pPivot,
+		     register int Step );
+
+static ElementPtr
+SearchEntireMatrix( MatrixPtr Matrix, int Step );
+
+static ElementPtr
+SearchDiagonal( MatrixPtr Matrix, register int Step );
+
+static
+RealRowColElimination( MatrixPtr Matrix, register ElementPtr pPivot );
+
+static
+ExchangeRowElements( MatrixPtr Matrix, 
+		     int Col1, register ElementPtr Element1, 
+		     int Col2, register ElementPtr Element2, 
+		     int Row );
+
+static
+MarkowitzProducts( MatrixPtr Matrix, int Step );
+
+static RealNumber
+FindLargestInCol( register ElementPtr pElement );
 
 
 /*

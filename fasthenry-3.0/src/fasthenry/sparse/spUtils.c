@@ -106,8 +106,12 @@ static char RCSid[] =
 #include "spMatrix.h"
 #include "spDefs.h"
 
-
-
+/*
+ * FUNCTION PROTOTYPES
+ *
+ */
+static RealNumber
+ComplexCondition( MatrixPtr Matrix, RealNumber NormOfMatrix, int *pError );
 
 
 

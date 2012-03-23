@@ -105,9 +105,16 @@ static char RCSid[] =
 #include "spMatrix.h"
 #include "spDefs.h"
 
+/*
+ * FUNCTION PROTOTYPES
+ *
+ */
+static void
+Translate( MatrixPtr Matrix,int *Row,int *Col);
 
-
-
+static
+ExpandTranslationArrays( MatrixPtr Matrix, 
+			 register int NewSize );
 
 
 /*

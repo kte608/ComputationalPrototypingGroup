@@ -462,13 +462,13 @@ operation of Software or Licensed Program(s) by LICENSEE or its customers.
  * MEMORY ALLOCATION
  */
 
-extern char *malloc(), *calloc(), *realloc();
+extern void *malloc(), *calloc(), *realloc();
 #ifdef ultrix
     extern void free();
     extern void abort();
 #else
-    extern free();
-    extern abort();
+    extern void free();
+    extern void abort();
 #endif
 
 #define ALLOC(type,number)  ((type *)malloc((unsigned)(sizeof(type)*(number))))

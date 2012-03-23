@@ -106,9 +106,18 @@ static char RCSid[] =
 #include "spMatrix.h"
 #include "spDefs.h"
 
+/* 
+ * FUNCTION PROTOTYPES
+ *
+ */
+static
+InitializeElementBlocks( MatrixPtr Matrix, int InitialNumberOfElements,
+                         int NumberOfFillinsExpected );
+static
+RecordAllocation( MatrixPtr Matrix, char *AllocatedPtr );
 
-
-
+static
+AllocateBlockOfAllocationList( MatrixPtr Matrix );
 
 
 /*
