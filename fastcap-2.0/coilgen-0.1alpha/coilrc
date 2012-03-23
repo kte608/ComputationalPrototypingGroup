@@ -1,0 +1,7 @@
+# Configuration file for coilgen
+#
+# Format is:
+#  diameter  length  #turns  wire_diameter  centre_x  centre_y  centre_z
+#
+0.485 0.265 62 1e-03 0.0 0.0 0.0
+0.33 0.24 57 1e-03 0.0 0.0 0.0
