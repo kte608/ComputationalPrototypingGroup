@@ -341,7 +341,7 @@ patch_data(stream)
   if (prev_patch) prev_patch->next = current_patch;
 
   waste_line(9,stream);
-  fscanf(stream, "%f %f %f %d %d %d %d", 
+  fscanf(stream, "%g %g %g %d %d %d %d", 
 	 &tmp, &tmp, &tmp, corner, corner+1, corner+2, corner+3);
   for (i=0; i<4; i++) current_patch->corner[i] = corner[i];
   prev_patch = current_patch;

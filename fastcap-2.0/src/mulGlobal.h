@@ -39,9 +39,11 @@ operation of Software or Licensed Program(s) by LICENSEE or its customers.
 /*
 ** Memory management functions (from stdlib.h (recursive incl => unusable))
 */
-extern char *   calloc();
-extern char *   malloc();
-extern char *   realloc();
+#include <stdlib.h>
+//extern void exit(int status);
+//extern void *   calloc(size_t nmemb, size_t size);
+//extern void *   malloc();
+//extern void *   realloc();
 #else
 #include <malloc.h>
 #endif /* end if NEWS */
@@ -57,7 +59,7 @@ extern char *   realloc();
 /* time variables/structs */
 #ifndef _TIME_                  /* if not on a Sun4 */
 #ifndef NEWS                    /* if not on a NWS-38XX */
-#include <time.h>
+//#include <time.h>
 #endif
 #endif
 
@@ -114,13 +116,13 @@ extern long memMSC;
      if((NUM)*sizeof(TYPE)==0)                                              \
        (void)fprintf(stderr,                                                \
 		     "zero element request in file `%s' at line %d\n",      \
-		     __FILE__, __LINE__);	                            \
+		     __FILE__, (int)__LINE__);				\
      else if(((PNTR)=(TYPE*)CALCORE(NUM, TYPE))==NULL) {                    \
        (void)fprintf(stderr,                                                \
 	 "\nfastcap: out of memory in file `%s' at line %d\n",              \
-	       __FILE__, __LINE__);                                         \
+		     __FILE__, (int)__LINE__);				\
        (void)fprintf(stderr, " (NULL pointer on %d byte request)\n",        \
-		     (NUM)*sizeof(TYPE));                                   \
+		     (int)(NUM)*sizeof(TYPE));				\
        DUMPALLOCSIZ;                                                        \
        DUMPRSS;                                                             \
        (void)fflush(stderr);                                                \
@@ -140,7 +142,7 @@ extern long memMSC;
        else if(MTYP == AQ2PD) memQ2PD += ((NUM)*sizeof(TYPE));              \
        else if(MTYP == AMSC) memMSC += ((NUM)*sizeof(TYPE));                \
        else {                                                               \
-         (void)fprintf(stderr, "CALLOC: unknown memory type %d\n", MTYP);   \
+         (void)fprintf(stderr, "CALLOC: unknown memory type %d\n", (int)MTYP); \
          exit(0);                                                           \
        }                                                                    \
      }                                                                      \
@@ -155,9 +157,9 @@ extern long memMSC;
      else if(((PNTR)=(TYPE*)MALCORE((unsigned)((NUM)*sizeof(TYPE))))==NULL) { \
        (void)fprintf(stderr,                                                 \
 	 "\nfastcap: out of memory in file `%s' at line %d\n",               \
-	       __FILE__, __LINE__);                                          \
+		     __FILE__,(int)__LINE__);				\
        (void)fprintf(stderr, " (NULL pointer on %d byte request)\n",         \
-		     (NUM)*sizeof(TYPE));                                    \
+		     (int)(NUM)*sizeof(TYPE));				\
        DUMPALLOCSIZ;                                                         \
        DUMPRSS;                                                              \
        (void)fflush(stderr);                                                 \

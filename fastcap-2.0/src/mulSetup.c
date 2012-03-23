@@ -35,6 +35,31 @@ operation of Software or Licensed Program(s) by LICENSEE or its customers.
 
 #include "mulGlobal.h"
 
+
+/*
+ * FUNCTION PROTOTYPES
+ *
+ */
+
+static indexkid(ssystem *sys,cube *dad,int *pqindex,int *pcindex);
+
+static getnbrs(ssystem *sys);
+
+static getAllInter(ssystem *sys);
+
+static set_vector_masks(ssystem *sys);
+
+static setMaxq(ssystem *sys);
+
+static linkcubes(ssystem *sys);
+
+static int placeq(int flag,
+		  ssystem *sys,
+		  charge *charges);
+
+/*
+ * GLOBAL VARIABLES
+ */
 cube *cstack[1024];		/* Stack used in several routines. */
 
 /*
@@ -97,10 +122,10 @@ charge *charges;
   - this routine is still called to set automatic levels if ADAPT is OFF,
      ie even when the calculation is not adaptive, so results can be compared
 */
-static int placeq(flag, sys, charges)
-int flag;			/* ON => set depth automatically */
-ssystem *sys;
-charge *charges;
+static int placeq(int flag, ssystem *sys, charge *charges)
+//int flag;			/* ON => set depth automatically */
+//ssystem *sys;
+//charge *charges;
 {
   int i, j, k, l, side, totalq, isexact, multerms(), depth;
   int xindex, yindex, zindex, limit = multerms(sys->order), compflag;

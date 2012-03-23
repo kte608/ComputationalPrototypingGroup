@@ -1,0 +1,6 @@
+make[1]: entrant dans le répertoire « /home/ke230945/Local/ComputationalPrototypingGroup/fastcap-2.0/src »
+make[1]: quittant le répertoire « /home/ke230945/Local/ComputationalPrototypingGroup/fastcap-2.0/src »
+cd src ; make fastcap
+make[1]: entrant dans le répertoire « /home/ke230945/Local/ComputationalPrototypingGroup/fastcap-2.0/src »
+cc -O -DOTHER   -c -o mulSetup.o mulSetup.c
+make[1]: quittant le répertoire « /home/ke230945/Local/ComputationalPrototypingGroup/fastcap-2.0/src »

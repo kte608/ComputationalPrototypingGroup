@@ -1,0 +1,145 @@
+mulSetup.c:56: error: expected declaration specifiers or ‘...’ before ‘ssystems’
+mulSetup.c: In function ‘mulInit’:
+mulSetup.c:74: warning: cast to pointer from integer of different size
+mulSetup.c:74: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:74: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:78: warning: passing argument 2 of ‘placeq’ from incompatible pointer type
+mulSetup.c:56: note: expected ‘struct charge *’ but argument is of type ‘struct ssystem *’
+mulSetup.c:78: error: too many arguments to function ‘placeq’
+mulSetup.c: In function ‘placeq’:
+mulSetup.c:127: error: argument ‘sys’ doesn’t match prototype
+mulSetup.c:56: error: prototype declaration
+mulSetup.c:127: error: number of arguments doesn’t match prototype
+mulSetup.c:56: error: prototype declaration
+mulSetup.c:182: warning: cast to pointer from integer of different size
+mulSetup.c:182: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:182: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:183: warning: cast to pointer from integer of different size
+mulSetup.c:183: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:183: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:186: warning: cast to pointer from integer of different size
+mulSetup.c:186: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:186: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:189: warning: cast to pointer from integer of different size
+mulSetup.c:189: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:189: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:193: warning: cast to pointer from integer of different size
+mulSetup.c:193: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:193: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:197: warning: cast to pointer from integer of different size
+mulSetup.c:197: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:197: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:199: warning: cast to pointer from integer of different size
+mulSetup.c:199: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:199: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:201: warning: cast to pointer from integer of different size
+mulSetup.c:201: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:201: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:220: warning: cast to pointer from integer of different size
+mulSetup.c:220: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:220: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:226: warning: cast to pointer from integer of different size
+mulSetup.c:226: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:226: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:232: warning: cast to pointer from integer of different size
+mulSetup.c:232: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:232: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:247: warning: cast to pointer from integer of different size
+mulSetup.c:247: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:247: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:254: warning: cast to pointer from integer of different size
+mulSetup.c:254: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:254: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:311: warning: cast to pointer from integer of different size
+mulSetup.c:311: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:311: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:313: warning: cast to pointer from integer of different size
+mulSetup.c:313: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:313: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:315: warning: cast to pointer from integer of different size
+mulSetup.c:315: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:315: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:317: warning: cast to pointer from integer of different size
+mulSetup.c:317: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:317: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:331: warning: cast to pointer from integer of different size
+mulSetup.c:331: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:331: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:334: warning: cast to pointer from integer of different size
+mulSetup.c:334: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:334: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:353: warning: cast to pointer from integer of different size
+mulSetup.c:353: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:353: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:354: warning: cast to pointer from integer of different size
+mulSetup.c:354: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:354: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘placeqold’:
+mulSetup.c:440: warning: cast to pointer from integer of different size
+mulSetup.c:440: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:440: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:441: warning: cast to pointer from integer of different size
+mulSetup.c:441: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:441: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:463: warning: cast to pointer from integer of different size
+mulSetup.c:463: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:463: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:466: warning: cast to pointer from integer of different size
+mulSetup.c:466: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:466: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:481: warning: cast to pointer from integer of different size
+mulSetup.c:481: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:481: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:482: warning: cast to pointer from integer of different size
+mulSetup.c:482: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:482: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘getrelations’:
+mulSetup.c:524: warning: cast to pointer from integer of different size
+mulSetup.c:524: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:524: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:537: warning: cast to pointer from integer of different size
+mulSetup.c:537: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:537: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘indexkid’:
+mulSetup.c:598: warning: cast to pointer from integer of different size
+mulSetup.c:598: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:598: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:599: warning: cast to pointer from integer of different size
+mulSetup.c:599: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:599: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘setExact’:
+mulSetup.c:697: warning: cast to pointer from integer of different size
+mulSetup.c:697: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:697: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:698: warning: cast to pointer from integer of different size
+mulSetup.c:698: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:698: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:701: warning: cast to pointer from integer of different size
+mulSetup.c:701: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:701: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:709: warning: cast to pointer from integer of different size
+mulSetup.c:709: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:709: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘getnbrs’:
+mulSetup.c:787: warning: cast to pointer from integer of different size
+mulSetup.c:787: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:787: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘linkcubes’:
+mulSetup.c:827: warning: cast to pointer from integer of different size
+mulSetup.c:827: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:827: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:828: warning: cast to pointer from integer of different size
+mulSetup.c:828: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:828: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:842: warning: cast to pointer from integer of different size
+mulSetup.c:842: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:842: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c:854: warning: cast to pointer from integer of different size
+mulSetup.c:854: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:854: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+mulSetup.c: In function ‘getInter’:
+mulSetup.c:1046: warning: cast to pointer from integer of different size
+mulSetup.c:1046: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long unsigned int’
+mulSetup.c:1046: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘long int’
+make[1]: *** [mulSetup.o] Erreur 1
+make: *** [fastcap] Erreur 2

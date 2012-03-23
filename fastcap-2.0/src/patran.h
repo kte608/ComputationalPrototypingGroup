@@ -42,7 +42,7 @@ operation of Software or Licensed Program(s) by LICENSEE or its customers.
 ***************************************************************************/
 /* Refer to Chapter 29, Neutral System, of PATRAN manual for explanation.
    The variable names are identical to those that appear in the manual. */
-
+#include <stdlib.h>
 typedef struct node { 
   int ID;
   double coord[3];
