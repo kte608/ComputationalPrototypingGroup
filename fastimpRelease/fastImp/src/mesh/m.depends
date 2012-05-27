@@ -1,0 +1,40 @@
+ix86-linux/mesh.o: mesh.cc ../../inc/mesh.h ../../../pfft++/inc/vector3D.h \
+ ../../inc/condInfo.h ../../inc/wire.h ../../inc/spiral.h \
+ ../../inc/ring.h ../../inc/ground.h ../../inc/meshConst.h \
+ ../../inc/vertex.h ../../inc/panel.h ../../inc/service.h meshCond.h \
+ ../../inc/condInfo.h ../../inc/panel.h ../../inc/meshConst.h \
+ ../../../pfft++/inc/vec.h ../../../pfft++/inc/subscript.h \
+ ../../inc/service.h meshWire.h ../../inc/wire.h meshRing.h \
+ ../../inc/ring.h meshSpiral.h ../../inc/spiral.h meshGround.h \
+ meshRectSpiral.h ../../inc/rectSpiral.h wirePath.h lineSegment.h \
+ corner.h meshOtherShape.h ../../inc/vertex.h
+ix86-linux/meshCond.o: meshCond.cc meshCond.h ../../inc/condInfo.h \
+ ../../../pfft++/inc/vector3D.h ../../inc/panel.h ../../inc/meshConst.h \
+ ../../inc/meshConst.h ../../../pfft++/inc/vec.h \
+ ../../../pfft++/inc/subscript.h ../../inc/service.h
+ix86-linux/meshWire.o: meshWire.cc meshWire.h meshCond.h ../../inc/condInfo.h \
+ ../../../pfft++/inc/vector3D.h ../../inc/panel.h ../../inc/meshConst.h \
+ ../../inc/meshConst.h ../../../pfft++/inc/vec.h \
+ ../../../pfft++/inc/subscript.h ../../inc/service.h ../../inc/wire.h \
+ ../../inc/condInfo.h
+ix86-linux/meshRing.o: meshRing.cc meshRing.h meshCond.h ../../inc/condInfo.h \
+ ../../../pfft++/inc/vector3D.h ../../inc/panel.h ../../inc/meshConst.h \
+ ../../inc/meshConst.h ../../../pfft++/inc/vec.h \
+ ../../../pfft++/inc/subscript.h ../../inc/service.h ../../inc/ring.h \
+ ../../inc/condInfo.h
+ix86-linux/meshSpiral.o: meshSpiral.cc meshSpiral.h meshCond.h ../../inc/condInfo.h \
+ ../../../pfft++/inc/vector3D.h ../../inc/panel.h ../../inc/meshConst.h \
+ ../../inc/meshConst.h ../../../pfft++/inc/vec.h \
+ ../../../pfft++/inc/subscript.h ../../inc/service.h ../../inc/spiral.h \
+ ../../inc/condInfo.h
+ix86-linux/meshRectSpiral.o: meshRectSpiral.cc meshRectSpiral.h \
+ ../../inc/rectSpiral.h ../../../pfft++/inc/vector3D.h \
+ ../../inc/condInfo.h meshCond.h ../../inc/condInfo.h ../../inc/panel.h \
+ ../../inc/meshConst.h ../../inc/meshConst.h ../../../pfft++/inc/vec.h \
+ ../../../pfft++/inc/subscript.h ../../inc/service.h wirePath.h \
+ lineSegment.h corner.h
+ix86-linux/wirePath.o: wirePath.cc wirePath.h ../../../pfft++/inc/vector3D.h
+ix86-linux/lineSegment.o: lineSegment.cc lineSegment.h wirePath.h \
+ ../../../pfft++/inc/vector3D.h
+ix86-linux/corner.o: corner.cc corner.h ../../../pfft++/inc/vector3D.h lineSegment.h \
+ wirePath.h
